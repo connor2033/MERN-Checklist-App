@@ -1,0 +1,24 @@
+.main {
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+}
+
+.createButtonDiv {
+  display: flex;
+  margin-top: 35vh;
+}
+
+.createButton {
+  width: 300px;
+}
+
+.descText {
+  margin: 30px;
+  text-align: center;
+  font-size: medium;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+}
