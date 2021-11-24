@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Navbar bg="primary" expand="lg" variant="dark">
+    <Navbar bg="primary" expand="lg" variant="dark" sticky="top">
       <Container>
         <Navbar.Brand>
           <Link to="/">MyList</Link>
