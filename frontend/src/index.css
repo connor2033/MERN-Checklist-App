@@ -14,7 +14,7 @@ code {
 
 /* Bootswatch overwrites */
 :root {
-  --bs-primary-rgb: 69, 130, 236;
+  --bs-primary-rgb: 212, 28, 0;
   --bs-secondary-rgb: 173, 181, 189;
   --bs-success-rgb: 2, 184, 117;
   --bs-info-rgb: 23, 162, 184;
@@ -24,7 +24,12 @@ code {
   --bs-dark-rgb: 52, 58, 64;
 }
 
-.test {
-  width: 100px;
-  margin: 50px;
+.btn-outline-primary {
+  color: rgba(var(--bs-primary-rgb));
+  border-color: rgba(var(--bs-primary-rgb));
+}
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: rgba(var(--bs-primary-rgb));
+  border-color: rgba(var(--bs-primary-rgb));
 }

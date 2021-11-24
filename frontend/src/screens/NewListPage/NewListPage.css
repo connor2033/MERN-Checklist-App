@@ -1,0 +1,43 @@
+.newListCard {
+  margin-top: 6%;
+  padding: 5vh;
+  padding-bottom: 3vh;
+  background-color: lightgray;
+  border-radius: 15px;
+}
+
+.saveBtn {
+  width: 100px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.listNameBox {
+  border: transparent;
+  background-color: transparent;
+  width: 100%;
+
+  display: block;
+  font-size: 2em;
+  margin-bottom: 0.3em;
+  font-weight: bold;
+}
+
+.listDetailsBox {
+  border: transparent;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: 1500px) {
+  .newListCard {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .newListCard {
+    width: 80%;
+  }
+}

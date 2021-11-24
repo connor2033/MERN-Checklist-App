@@ -8,13 +8,15 @@ const LandingPage = () => {
     <div className="main">
       <Container style={{ minHeight: "93vh" }}>
         <Row className="createButtonDiv">
-          <Button
-            variant="outline-primary"
-            size="lg"
-            className="m-auto createButton"
-          >
-            <Link to="/newlist">Create a List</Link>
-          </Button>
+          <Link to="/newlist">
+            <Button
+              variant="outline-primary"
+              size="lg"
+              className="m-auto createButton"
+            >
+              Create a List
+            </Button>
+          </Link>
         </Row>
         <Row className="descText">
           <p>Some text about creating a new list</p>

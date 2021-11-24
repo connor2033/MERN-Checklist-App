@@ -1,0 +1,25 @@
+.addRemoveBtn {
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 40px;
+}
+
+.shell {
+  margin-bottom: 10px;
+  min-width: 87%;
+  padding: 10px;
+  padding-left: 30px;
+  background-color: #ededed;
+  border-radius: 10px;
+}
+
+.inputBox {
+  border: transparent;
+  background-color: transparent;
+  width: 100%;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
