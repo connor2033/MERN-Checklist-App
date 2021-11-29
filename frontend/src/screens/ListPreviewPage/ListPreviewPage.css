@@ -1,0 +1,29 @@
+.previewLeftContainer {
+  margin-top: 20%;
+  margin-left: 20%;
+  width: 40vw;
+}
+
+.listScroll {
+  height: 20vh;
+  overflow: auto;
+}
+
+.previewRightContainer {
+  padding: 5vh;
+  padding-bottom: 3vh;
+  background-color: transparent;
+  width: 75%;
+}
+
+.shareBtn {
+  width: 30%;
+  margin-top: 25vh;
+  padding: 10px;
+}
+
+.copyBtn {
+  width: 30%;
+  margin-top: 10vh;
+  padding: 10px;
+}

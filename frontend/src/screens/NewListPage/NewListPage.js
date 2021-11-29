@@ -15,9 +15,11 @@ function NewListPage() {
 
   // handle click event of the Remove button
   const handleRemoveClick = (index) => {
-    const list = [...inputList];
-    list.splice(index, 1);
-    setInputList(list);
+    if (inputList.length > 1) {
+      const list = [...inputList];
+      list.splice(index, 1);
+      setInputList(list);
+    }
   };
 
   // handle click event of the Add button with index
@@ -67,7 +69,7 @@ function NewListPage() {
                   <Col>
                     <Button
                       className="addRemoveBtn"
-                      variant="danger"
+                      variant="outline-danger"
                       style={{ marginRight: 10 }}
                       onClick={() => handleRemoveClick(i)}
                     >
@@ -75,7 +77,7 @@ function NewListPage() {
                     </Button>
                     <Button
                       className="addRemoveBtn"
-                      variant="success"
+                      variant="outline-success"
                       onClick={() => handleAddClick(i)}
                     >
                       +
@@ -84,17 +86,9 @@ function NewListPage() {
                 </Row>
               );
             })}
-            <Row>
-              <Button
-                className="addRemoveBtn"
-                variant="outline-success"
-                onClick={() => handleAddClick(inputList.length)}
-              >
-                +
-              </Button>
-            </Row>
             <Row style={{ display: "flex", justifyContent: "right" }}>
-              <Button variant="dark" className="saveBtn">
+              {/* Temp href to /preview */}
+              <Button variant="dark" className="saveBtn" href="/preview">
                 Save
               </Button>
             </Row>

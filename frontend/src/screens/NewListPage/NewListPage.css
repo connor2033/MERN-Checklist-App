@@ -22,6 +22,7 @@
   font-size: 2em;
   margin-bottom: 0.3em;
   font-weight: bold;
+  color: var(--bs-body-color);
 }
 
 .listDetailsBox {
@@ -29,6 +30,36 @@
   background-color: transparent;
   width: 100%;
   margin-bottom: 15px;
+  color: var(--bs-body-color);
+}
+
+.addRemoveBtn {
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 40px;
+  text-align: center;
+  padding: 10px;
+}
+
+.shell {
+  margin-bottom: 10px;
+  min-width: 87%;
+  padding: 10px;
+  padding-left: 30px;
+  background-color: #ededed;
+  border-radius: 10px;
+}
+
+.inputBox {
+  border: transparent;
+  background-color: transparent;
+  width: 100%;
+  color: var(--bs-body-color);
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
 }
 
 @media screen and (min-width: 1500px) {

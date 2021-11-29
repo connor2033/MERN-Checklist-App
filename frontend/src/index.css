@@ -22,6 +22,7 @@ code {
   --bs-danger-rgb: 217, 83, 79;
   --bs-light-rgb: 248, 249, 250;
   --bs-dark-rgb: 52, 58, 64;
+  --bs-body-color: #343a40;
 }
 
 .btn-outline-primary {
