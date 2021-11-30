@@ -14,7 +14,11 @@ const Footer = () => {
     >
       <Container>
         <Row>
-          <Col className="text-center py-3">Connor Haines</Col>
+          <Col className="text-center py-3" style={{ color: "#dedede" }}>
+            <a href="http://ConnorHaines.net" target="_blank" rel="noreferrer">
+              Connor Haines
+            </a>
+          </Col>
         </Row>
       </Container>
     </footer>

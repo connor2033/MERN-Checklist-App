@@ -29,6 +29,20 @@ function NewListPage() {
     setInputList([...listEnd, { itemName: "" }, ...listStart]);
   };
 
+  // handle keyDown event for add
+  const handleAddKey = (event, index) => {
+    if (event.key === "Enter") {
+      handleAddClick(index);
+    }
+  };
+
+  // send focus to specified id on Enter
+  const handleFocus = (event, id) => {
+    if (event.key === "Enter") {
+      document.getElementById(id.toString()).focus();
+    }
+  };
+
   return (
     <>
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -39,8 +53,14 @@ function NewListPage() {
               <input
                 type="text"
                 placeholder="List Name"
+                maxlength="48"
+                autocomplete="off"
                 autoFocus="autofocus"
                 className="listNameBox"
+                id="titleBox"
+                onKeyUp={(e) => {
+                  handleFocus(e, "detailBox");
+                }}
               ></input>
               <hr />
             </Row>
@@ -49,43 +69,60 @@ function NewListPage() {
               <input
                 type="text"
                 placeholder="Details..."
+                maxlength="240"
+                autocomplete="off"
                 className="listDetailsBox"
+                id="detailBox"
+                onKeyUp={(e) => {
+                  handleFocus(e, 0);
+                }}
               ></input>
             </Row>
             {/* Item Row */}
-            {inputList.map((x, i) => {
-              return (
-                <Row>
-                  <Col className="shell">
-                    <input
-                      name="itemName"
-                      value={x.itemName}
-                      onChange={(e) => handleInputChange(e, i)}
-                      type="text"
-                      placeholder="Add an item..."
-                      className="inputBox"
-                    ></input>
-                  </Col>
-                  <Col>
-                    <Button
-                      className="addRemoveBtn"
-                      variant="outline-danger"
-                      style={{ marginRight: 10 }}
-                      onClick={() => handleRemoveClick(i)}
-                    >
-                      -
-                    </Button>
-                    <Button
-                      className="addRemoveBtn"
-                      variant="outline-success"
-                      onClick={() => handleAddClick(i)}
-                    >
-                      +
-                    </Button>
-                  </Col>
-                </Row>
-              );
-            })}
+            <div className="scrollBox">
+              {inputList.map((x, i) => {
+                return (
+                  <Row style={{ marginLeft: "0px", width: "98%" }}>
+                    <Col className="shell">
+                      <input
+                        name="itemName"
+                        value={x.itemName}
+                        onChange={(e) => handleInputChange(e, i)}
+                        id={i}
+                        type="text"
+                        placeholder="Add an item..."
+                        maxlength="90"
+                        autocomplete="off"
+                        className="inputBox"
+                        onKeyDown={(e) => {
+                          handleAddKey(e, i);
+                        }}
+                        onKeyUp={(e) => {
+                          handleFocus(e, i + 1);
+                        }}
+                      ></input>
+                    </Col>
+                    <Col>
+                      <Button
+                        className="addRemoveBtn"
+                        variant="outline-danger"
+                        style={{ marginRight: 10 }}
+                        onClick={() => handleRemoveClick(i)}
+                      >
+                        -
+                      </Button>
+                      <Button
+                        className="addRemoveBtn"
+                        variant="outline-success"
+                        onClick={() => handleAddClick(i)}
+                      >
+                        +
+                      </Button>
+                    </Col>
+                  </Row>
+                );
+              })}
+            </div>
             <Row style={{ display: "flex", justifyContent: "right" }}>
               {/* Temp href to /preview */}
               <Button variant="dark" className="saveBtn" href="/preview">
@@ -94,9 +131,7 @@ function NewListPage() {
             </Row>
           </div>
           {/* \/ for testing list as JSON */}
-          {/* <div style={{ marginTop: 20, color: "white" }}>
-            {JSON.stringify(inputList)}
-          </div> */}
+          {/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
         </Container>
       </div>
     </>

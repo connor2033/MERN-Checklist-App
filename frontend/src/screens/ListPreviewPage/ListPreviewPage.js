@@ -6,7 +6,7 @@ function ListPreviewPage() {
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <Col style={{ display: "flex", justifyContent: "center" }}>
-        <Container className="newListCard previewLeftContainer">
+        <Container className="previewLeftContainer">
           <div>
             <Row>
               {/* List Name */}
@@ -15,13 +15,21 @@ function ListPreviewPage() {
             </Row>
             {/* Details */}
             <Row>
-              <p className="listDetailsBox">Details will be displayed here</p>
+              <p className="listDetailsBox">
+                Details will be displayed here blah blah blah blah blah blah
+                blah blah blah blah blah blah blah blah blah blah blah
+              </p>
             </Row>
             <div className="listScroll">
-              <Row className="shell">List item?</Row>
-              <Row className="shell">List item?</Row>
-              <Row className="shell">List item?</Row>
-              <Row className="shell">List item?</Row>
+              <Row className="itemShell">List item?</Row>
+              <Row className="itemShell">List item?</Row>
+              <Row className="itemShell">List item?</Row>
+              <Row className="itemShell">List item?</Row>
+              <Row className="itemShell">List item?</Row>
+              <Row className="itemShell">List item?</Row>
+              <Row className="itemShell">List item?</Row>
+              <Row className="itemShell">List item?</Row>
+              <Row className="itemShell">List item?</Row>
             </div>
           </div>
         </Container>
