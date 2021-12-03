@@ -18,7 +18,7 @@
   margin-left: 0px;
   width: 98%;
   padding: 10px;
-  padding-left: 30px;
+  padding-left: 20px;
   background-color: #ededed;
   border-radius: 10px;
 }
@@ -38,23 +38,43 @@
 
 .shareBtn {
   width: 30%;
+  min-width: 150px;
   margin-top: 25vh;
   padding: 10px;
 }
 
 .copyBtn {
   width: 30%;
+  min-width: 150px;
   margin-top: 10vh;
   padding: 10px;
+}
+
+.listNameBox {
+  border: transparent;
+  background-color: transparent;
+  width: 100%;
+
+  display: block;
+  font-size: 2em;
+  margin-bottom: 0.3em;
+  font-weight: bold;
+  color: var(--bs-body-color);
+}
+
+.listDetailsBox {
+  resize: none;
+  border: transparent;
+  height: auto;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 15px;
+  color: var(--bs-body-color);
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 15px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
 }
 
 /* Handle */

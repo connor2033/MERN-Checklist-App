@@ -1,4 +1,5 @@
 import { Col, Container, Row, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./ListPreviewPage.css";
 import "../NewListPage/NewListPage.css";
 
@@ -43,10 +44,15 @@ function ListPreviewPage() {
               Share
             </Button>
           </Row>
-          <Row style={{ display: "flex", justifyContent: "center" }}>
-            <Button variant="success" size="lg" className="copyBtn">
-              Make a Copy
-            </Button>
+          <Row>
+            <Link
+              to="/list"
+              style={{ display: "flex", justifyContent: "center" }}
+            >
+              <Button variant="success" size="lg" className="copyBtn">
+                Make a Copy
+              </Button>
+            </Link>
           </Row>
         </Container>
       </Col>

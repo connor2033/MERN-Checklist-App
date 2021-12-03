@@ -1,0 +1,36 @@
+.listCard {
+  margin-top: 6%;
+  margin-bottom: 6%;
+  padding: 5vh;
+  padding-bottom: 3vh;
+  background-color: lightgray;
+  border-radius: 15px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.listDetailsBox {
+  resize: none;
+  border: transparent;
+  height: auto;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 15px;
+  color: var(--bs-body-color);
+}
+
+.scrollBox {
+  overflow: auto;
+  max-height: 40vh;
+  border-radius: 10px;
+}
+
+.itemShell {
+  margin-bottom: 10px;
+  min-width: 100%;
+  padding: 10px;
+  padding-left: 20px;
+  background-color: #ededed;
+  border-radius: 10px;
+  max-height: 3em;
+  color: var(--bs-body-color);
+}
