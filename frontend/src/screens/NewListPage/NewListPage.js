@@ -126,7 +126,7 @@ function NewListPage() {
             <Row style={{ display: "flex", justifyContent: "right" }}>
               {/* Temp href to /preview */}
               <Button variant="dark" className="saveBtn" href="/preview">
-                Save
+                Create
               </Button>
             </Row>
           </div>
