@@ -1,4 +1,11 @@
-import { Container, Row, Button, Col } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Button,
+  Col,
+  ButtonGroup,
+  Dropdown,
+} from "react-bootstrap";
 import "./NewListPage.css";
 import { useState } from "react";
 
@@ -79,10 +86,10 @@ function NewListPage() {
               ></input>
             </Row>
             {/* Item Row */}
-            <div className="scrollBox">
+            <div className="scrollBox" id="scrollBox">
               {inputList.map((x, i) => {
                 return (
-                  <Row style={{ marginLeft: "0px", width: "98%" }}>
+                  <Row style={{ marginLeft: "0px", width: "100%" }}>
                     <Col className="shell">
                       <input
                         name="itemName"
@@ -102,22 +109,26 @@ function NewListPage() {
                         }}
                       ></input>
                     </Col>
-                    <Col>
-                      <Button
-                        className="addRemoveBtn"
-                        variant="outline-danger"
-                        style={{ marginRight: 10 }}
-                        onClick={() => handleRemoveClick(i)}
-                      >
-                        -
-                      </Button>
-                      <Button
-                        className="addRemoveBtn"
-                        variant="outline-success"
-                        onClick={() => handleAddClick(i)}
-                      >
-                        +
-                      </Button>
+                    <Col style={{}}>
+                      <Dropdown as={ButtonGroup} style={{ marginTop: "5px" }}>
+                        <Button
+                          variant="success"
+                          onClick={() => handleAddClick(i)}
+                        >
+                          +
+                        </Button>
+
+                        <Dropdown.Toggle>...</Dropdown.Toggle>
+
+                        <Dropdown.Menu align="end">
+                          <Dropdown.Item onClick={() => handleAddClick(i)}>
+                            Add Subheading
+                          </Dropdown.Item>
+                          <Dropdown.Item onClick={() => handleRemoveClick(i)}>
+                            Remove
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
                     </Col>
                   </Row>
                 );
