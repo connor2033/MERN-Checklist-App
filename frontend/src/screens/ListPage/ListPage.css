@@ -18,14 +18,15 @@
   color: var(--bs-body-color);
 }
 
-.scrollBox {
+.listScrollBox {
   overflow: auto;
   max-height: 40vh;
   border-radius: 10px;
 }
 
-.itemShell {
+.itemListShell {
   margin-bottom: 10px;
+  margin-left: 0px;
   min-width: 100%;
   padding: 10px;
   padding-left: 20px;
@@ -33,4 +34,16 @@
   border-radius: 10px;
   max-height: 3em;
   color: var(--bs-body-color);
+}
+
+.headingListShell {
+  margin-bottom: 10px;
+  margin-left: 0px;
+  min-width: 100%;
+  padding-left: 10px;
+  background-color: transparent;
+  max-height: 3em;
+  color: var(--bs-body-color);
+  font-weight: 600;
+  text-decoration: underline;
 }

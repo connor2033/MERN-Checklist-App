@@ -13,7 +13,7 @@
   border-radius: 15px;
 }
 
-.itemShell {
+.itemPreviewShell {
   margin-bottom: 10px;
   margin-left: 0px;
   width: 98%;
@@ -23,10 +23,23 @@
   border-radius: 10px;
 }
 
+.headingPreviewShell {
+  margin-bottom: 5px;
+  margin-left: 0px;
+  width: 95%;
+  padding: 10px;
+  padding-left: 10px;
+  background-color: transparent;
+  max-height: 3em;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 .listScroll {
   overflow: auto;
   max-height: 40vh;
   border-radius: 10px;
+  padding-right: 10px;
 }
 
 .previewRightContainer {

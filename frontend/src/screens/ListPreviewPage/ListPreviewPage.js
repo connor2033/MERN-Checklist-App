@@ -22,15 +22,15 @@ function ListPreviewPage() {
               </p>
             </Row>
             <div className="listScroll">
-              <Row className="itemShell">List item?</Row>
-              <Row className="itemShell">List item?</Row>
-              <Row className="itemShell">List item?</Row>
-              <Row className="itemShell">List item?</Row>
-              <Row className="itemShell">List item?</Row>
-              <Row className="itemShell">List item?</Row>
-              <Row className="itemShell">List item?</Row>
-              <Row className="itemShell">List item?</Row>
-              <Row className="itemShell">List item?</Row>
+              <Row className="itemPreviewShell">List item?</Row>
+              <Row className="itemPreviewShell">List item?</Row>
+              <Row className="headingPreviewShell">Wednesday</Row>
+              <Row className="itemPreviewShell">List item?</Row>
+              <Row className="itemPreviewShell">List item?</Row>
+              <Row className="itemPreviewShell">List item?</Row>
+              <Row className="itemPreviewShell">List item?</Row>
+              <Row className="itemPreviewShell">List item?</Row>
+              <Row className="itemPreviewShell">List item?</Row>
             </div>
           </div>
         </Container>

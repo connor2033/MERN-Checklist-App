@@ -1,4 +1,4 @@
-import { Container, Row, Button, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "./ListPage.css";
 
 function ListPage() {
@@ -14,13 +14,57 @@ function ListPage() {
           {/* Details */}
           <Row>
             <div className="listDetailsBox">
-              Get these on Saturday before the big event!
+              Get groceries on Saturday before the big event!
             </div>
           </Row>
-          <div className="scrollBox">
+          <div className="listScrollBox">
             {/* This is an item */}
             <Row style={{ marginLeft: "0px", width: "98%" }}>
-              <Row className="itemShell">
+              <Row className="itemListShell">
+                <Col>List item</Col>
+                <Col style={{ display: "flex", justifyContent: "right" }}>
+                  <div>✔</div>
+                </Col>
+              </Row>
+              <Row className="headingListShell">
+                <Col>Wednesday</Col>
+                <Col style={{ display: "flex", justifyContent: "right" }}></Col>
+              </Row>
+              <Row className="itemListShell">
+                <Col>List item</Col>
+                <Col style={{ display: "flex", justifyContent: "right" }}>
+                  <div>✔</div>
+                </Col>
+              </Row>
+              <Row className="itemListShell">
+                <Col>List item</Col>
+                <Col style={{ display: "flex", justifyContent: "right" }}>
+                  <div>✔</div>
+                </Col>
+              </Row>
+              <Row className="headingListShell">
+                <Col>Friday get this stuff:</Col>
+                <Col style={{ display: "flex", justifyContent: "right" }}></Col>
+              </Row>
+              <Row className="itemListShell">
+                <Col>List item</Col>
+                <Col style={{ display: "flex", justifyContent: "right" }}>
+                  <div>✔</div>
+                </Col>
+              </Row>
+              <Row className="itemListShell">
+                <Col>List item</Col>
+                <Col style={{ display: "flex", justifyContent: "right" }}>
+                  <div>✔</div>
+                </Col>
+              </Row>
+              <Row className="itemListShell">
+                <Col>List item</Col>
+                <Col style={{ display: "flex", justifyContent: "right" }}>
+                  <div>✔</div>
+                </Col>
+              </Row>
+              <Row className="itemListShell">
                 <Col>List item</Col>
                 <Col style={{ display: "flex", justifyContent: "right" }}>
                   <div>✔</div>

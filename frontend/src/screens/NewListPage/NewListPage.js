@@ -10,7 +10,9 @@ import "./NewListPage.css";
 import { useState } from "react";
 
 function NewListPage() {
-  const [inputList, setInputList] = useState([{ itemName: "" }]);
+  const [inputList, setInputList] = useState([
+    { itemType: "check", itemName: "" },
+  ]);
 
   // handle input change
   const handleInputChange = (e, index) => {
@@ -29,11 +31,28 @@ function NewListPage() {
     }
   };
 
+  //add Heading object to list
+  const handleAddHeadingClick = (index) => {
+    if (inputList[index].itemType !== "heading") {
+      const listStart = [...inputList.splice(index, inputList.length)];
+      const listEnd = [...inputList.splice(0, index)];
+      setInputList([
+        ...listEnd,
+        { itemType: "heading", itemName: "" },
+        ...listStart,
+      ]);
+    }
+  };
+
   // handle click event of the Add button with index
   const handleAddClick = (index) => {
     const listStart = [...inputList.splice(index + 1, inputList.length)];
     const listEnd = [...inputList.splice(0, index + 1)];
-    setInputList([...listEnd, { itemName: "" }, ...listStart]);
+    setInputList([
+      ...listEnd,
+      { itemType: "check", itemName: "" },
+      ...listStart,
+    ]);
   };
 
   // handle keyDown event for add
@@ -88,9 +107,61 @@ function NewListPage() {
             {/* Item Row */}
             <div className="scrollBox" id="scrollBox">
               {inputList.map((x, i) => {
+                // HEADING
+                if (x.itemType === "heading") {
+                  return (
+                    <Row style={{ marginLeft: "0px", width: "100%" }}>
+                      <Col className="newHeadingShell">
+                        <input
+                          name="itemName"
+                          value={x.itemName}
+                          onChange={(e) => handleInputChange(e, i)}
+                          id={i}
+                          type="text"
+                          placeholder="Add a subheading..."
+                          maxlength="48"
+                          autocomplete="off"
+                          className="inputBox"
+                          onKeyDown={(e) => {
+                            handleAddKey(e, i);
+                          }}
+                          onKeyUp={(e) => {
+                            handleFocus(e, i + 1);
+                          }}
+                        ></input>
+                        <hr style={{ width: "70%" }} />
+                      </Col>
+                      <Col>
+                        <Dropdown as={ButtonGroup} style={{ marginTop: "5px" }}>
+                          <Button
+                            variant="success"
+                            onClick={() => handleAddClick(i)}
+                          >
+                            +
+                          </Button>
+
+                          <Dropdown.Toggle></Dropdown.Toggle>
+
+                          <Dropdown.Menu align="end">
+                            <Dropdown.Item
+                              onClick={() => handleAddHeadingClick(i)}
+                            >
+                              Add Subheading
+                            </Dropdown.Item>
+                            <Dropdown.Item onClick={() => handleRemoveClick(i)}>
+                              Remove
+                            </Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown>
+                      </Col>
+                    </Row>
+                  );
+                }
+
+                // CHECKLIST ITEM
                 return (
                   <Row style={{ marginLeft: "0px", width: "100%" }}>
-                    <Col className="shell">
+                    <Col className="newItemshell">
                       <input
                         name="itemName"
                         value={x.itemName}
@@ -109,7 +180,7 @@ function NewListPage() {
                         }}
                       ></input>
                     </Col>
-                    <Col style={{}}>
+                    <Col>
                       <Dropdown as={ButtonGroup} style={{ marginTop: "5px" }}>
                         <Button
                           variant="success"
@@ -118,10 +189,12 @@ function NewListPage() {
                           +
                         </Button>
 
-                        <Dropdown.Toggle>...</Dropdown.Toggle>
+                        <Dropdown.Toggle></Dropdown.Toggle>
 
                         <Dropdown.Menu align="end">
-                          <Dropdown.Item onClick={() => handleAddClick(i)}>
+                          <Dropdown.Item
+                            onClick={() => handleAddHeadingClick(i)}
+                          >
                             Add Subheading
                           </Dropdown.Item>
                           <Dropdown.Item onClick={() => handleRemoveClick(i)}>
