@@ -11,7 +11,7 @@ import { useState } from "react";
 
 function NewListPage() {
   const [inputList, setInputList] = useState([
-    { itemType: "check", itemName: "" },
+    { itemType: "checklistItem", itemName: "", isChecked: false },
   ]);
 
   // handle input change
@@ -32,15 +32,21 @@ function NewListPage() {
   };
 
   //add Heading object to list
+  //Don't allow headings next to eachother
   const handleAddHeadingClick = (index) => {
     if (inputList[index].itemType !== "heading") {
-      const listStart = [...inputList.splice(index, inputList.length)];
-      const listEnd = [...inputList.splice(0, index)];
-      setInputList([
-        ...listEnd,
-        { itemType: "heading", itemName: "" },
-        ...listStart,
-      ]);
+      if (
+        (index > 0 && inputList[index - 1].itemType !== "heading") ||
+        index === 0
+      ) {
+        const listStart = [...inputList.splice(index, inputList.length)];
+        const listEnd = [...inputList.splice(0, index)];
+        setInputList([
+          ...listEnd,
+          { itemType: "heading", itemName: "", isChecked: false },
+          ...listStart,
+        ]);
+      }
     }
   };
 
@@ -50,7 +56,7 @@ function NewListPage() {
     const listEnd = [...inputList.splice(0, index + 1)];
     setInputList([
       ...listEnd,
-      { itemType: "check", itemName: "" },
+      { itemType: "checklistItem", itemName: "", isChecked: false },
       ...listStart,
     ]);
   };
@@ -215,7 +221,7 @@ function NewListPage() {
             </Row>
           </div>
           {/* \/ for testing list as JSON */}
-          {/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
+          <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div>
         </Container>
       </div>
     </>
