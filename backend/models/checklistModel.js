@@ -7,18 +7,22 @@ var listItemSchema = new mongoose.Schema({
   isChecked: Boolean,
 });
 
-const checklistSchema = mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
+const checklistSchema = mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    details: {
+      type: String,
+      required: false,
+    },
+    listItems: [listItemSchema],
   },
-  details: {
-    type: String,
-    required: true,
-  },
-  listItems: [listItemSchema], //List of listItemSchema from above
-  //created, updated, id(?), etc
-});
+  {
+    timestamps: true,
+  }
+);
 
 const Checklist = mongoose.model("Checklist", checklistSchema);
 

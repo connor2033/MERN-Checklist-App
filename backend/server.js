@@ -1,7 +1,7 @@
 const express = require("express");
-const notes = require("./data/notes");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const checklistRoutes = require("./routes/checklistRoutes");
 
 const app = express();
 dotenv.config();
@@ -11,9 +11,8 @@ app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-app.get("/api/notes", (req, res) => {
-  res.json(notes);
-});
+app.use(express.json());
+app.use("/api/checklist", checklistRoutes);
 
 const PORT = process.env.PORT || 5000;
 
