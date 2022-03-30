@@ -63,10 +63,37 @@ const deleteChecklist = asyncHandler(async (req, res) => {
   }
 });
 
+const copyChecklist = asyncHandler(async (req, res) => {
+  const checklist = await Checklist.findById(req.params.id);
+
+  if (checklist) {
+    const title = checklist.title;
+    const details = checklist.details;
+    const listItems = checklist.listItems;
+
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].isChecked = false;
+    }
+
+    const newChecklist = new Checklist({
+      title,
+      details,
+      listItems,
+    });
+
+    const createdChecklist = await newChecklist.save();
+
+    res.status(200).json(createdChecklist);
+  } else {
+    res.status(404).json({ message: "Checklist not found" });
+  }
+});
+
 module.exports = {
   getChecklists,
   createChecklist,
   getChecklistById,
   updateChecklist,
   deleteChecklist,
+  copyChecklist,
 };

@@ -6,6 +6,7 @@ const {
   getChecklistById,
   updateChecklist,
   deleteChecklist,
+  copyChecklist,
 } = require("../controllers/checklistController");
 
 const router = express.Router();
@@ -16,6 +17,7 @@ router
   .route("/:id")
   .get(getChecklistById)
   .put(updateChecklist)
-  .delete(deleteChecklist);
+  .delete(deleteChecklist)
+  .copy(copyChecklist);
 
 module.exports = router;
