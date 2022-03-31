@@ -1,9 +1,27 @@
 import { Col, Container, Row, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./ListPreviewPage.css";
 import "../NewListPage/NewListPage.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function ListPreviewPage() {
+  let { id } = useParams();
+
+  const [title, setTitle] = useState("");
+
+  const getChecklist = async () => {
+    const { data } = await axios.get("/api/checklist/" + id);
+
+    setTitle(data.title);
+
+    console.log(data);
+  };
+
+  useEffect(() => {
+    getChecklist();
+  }, [getChecklist]);
+
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <Col style={{ display: "flex", justifyContent: "center" }}>
@@ -11,7 +29,7 @@ function ListPreviewPage() {
           <div>
             <Row>
               {/* List Name */}
-              <h1 className="listNameBox">List Name</h1>
+              <h1 className="listNameBox">{title}</h1>
               <hr />
             </Row>
             {/* Details */}
