@@ -2,9 +2,18 @@ const mongoose = require("mongoose");
 
 //should match inputList from NewListPage
 var listItemSchema = new mongoose.Schema({
-  itemType: String,
-  itemName: String,
-  isChecked: Boolean,
+  itemType: {
+    type: String,
+    required: true,
+  },
+  itemName: {
+    type: String,
+    required: false,
+  },
+  isChecked: {
+    type: String,
+    required: true,
+  },
 });
 
 const checklistSchema = mongoose.Schema(

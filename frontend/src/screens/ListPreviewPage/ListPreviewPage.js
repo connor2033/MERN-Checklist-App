@@ -1,5 +1,12 @@
-import { Col, Container, Row, Button } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import {
+  Col,
+  Container,
+  Row,
+  Button,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import "./ListPreviewPage.css";
 import "../NewListPage/NewListPage.css";
 import { useEffect, useState } from "react";
@@ -8,19 +15,39 @@ import axios from "axios";
 function ListPreviewPage() {
   let { id } = useParams();
 
-  const [title, setTitle] = useState("");
+  const [checklist, setChecklist] = useState({
+    title: "",
+    details: "",
+    listItems: [
+      { itemType: "checklistItem", itemName: "", isChecked: false, _id: "" },
+    ],
+    _id: "",
+  });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getChecklist = async () => {
     const { data } = await axios.get("/api/checklist/" + id);
 
-    setTitle(data.title);
+    const newChecklist = {
+      title: data.title,
+      details: data.details,
+      listItems: [...data.listItems],
+      _id: data._id,
+    };
 
-    console.log(data);
+    setChecklist(newChecklist);
   };
 
   useEffect(() => {
     getChecklist();
   }, [getChecklist]);
+
+  const copyChecklist = async () => {
+    const { data } = await axios.get("/api/checklist/copy/" + checklist._id);
+
+    console.log(data);
+    window.location.href = "/list/" + data._id;
+  };
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -29,26 +56,29 @@ function ListPreviewPage() {
           <div>
             <Row>
               {/* List Name */}
-              <h1 className="listNameBox">{title}</h1>
+              <h1 className="listNameBox">{checklist.title}</h1>
               <hr />
             </Row>
             {/* Details */}
             <Row>
-              <p className="listDetailsBox">
-                Details will be displayed here blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah blah blah
-              </p>
+              <div className="listDetailsBox">{checklist.details}</div>
             </Row>
             <div className="listScroll">
-              <Row className="itemPreviewShell">List item?</Row>
-              <Row className="itemPreviewShell">List item?</Row>
-              <Row className="headingPreviewShell">Wednesday</Row>
-              <Row className="itemPreviewShell">List item?</Row>
-              <Row className="itemPreviewShell">List item?</Row>
-              <Row className="itemPreviewShell">List item?</Row>
-              <Row className="itemPreviewShell">List item?</Row>
-              <Row className="itemPreviewShell">List item?</Row>
-              <Row className="itemPreviewShell">List item?</Row>
+              {checklist.listItems.map((item) => {
+                if (item.itemType === "heading") {
+                  return (
+                    <Row className="headingPreviewShell" key={item._id}>
+                      {item.itemName}
+                    </Row>
+                  );
+                }
+
+                return (
+                  <Row className="itemPreviewShell" key={item._id}>
+                    {item.itemName}
+                  </Row>
+                );
+              })}
             </div>
           </div>
         </Container>
@@ -58,19 +88,49 @@ function ListPreviewPage() {
       <Col>
         <Container className="previewRightContainer">
           <Row style={{ display: "flex", justifyContent: "center" }}>
-            <Button variant="outline-success" size="lg" className="shareBtn">
-              Share
-            </Button>
-          </Row>
-          <Row>
-            <Link
-              to="/list"
-              style={{ display: "flex", justifyContent: "center" }}
+            <OverlayTrigger
+              placement="top"
+              overlay={
+                <Tooltip
+                  id={"top"}
+                  style={{
+                    padding: "5px",
+                    color: "white",
+                    borderRadius: 3,
+                  }}
+                >
+                  Get a copy of this list!
+                </Tooltip>
+              }
             >
-              <Button variant="success" size="lg" className="copyBtn">
+              <Button
+                variant="success"
+                size="lg"
+                className="copyBtn"
+                onClick={() => copyChecklist()}
+              >
                 Make a Copy
               </Button>
-            </Link>
+            </OverlayTrigger>
+          </Row>
+          <Row style={{ display: "flex", justifyContent: "center" }}>
+            <OverlayTrigger
+              trigger="click"
+              rootClose
+              placement="right"
+              overlay={<Tooltip id={"top"}>Copied to Clipboard</Tooltip>}
+            >
+              <Button
+                variant="outline-success"
+                size="lg"
+                className="shareBtn"
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href);
+                }}
+              >
+                Share
+              </Button>
+            </OverlayTrigger>
           </Row>
         </Container>
       </Col>

@@ -17,7 +17,7 @@ router
   .route("/:id")
   .get(getChecklistById)
   .put(updateChecklist)
-  .delete(deleteChecklist)
-  .copy(copyChecklist);
+  .delete(deleteChecklist);
+router.route("/copy/:id").get(copyChecklist);
 
 module.exports = router;

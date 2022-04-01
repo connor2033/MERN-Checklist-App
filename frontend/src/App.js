@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/newlist" element={<NewListPage />} />
           <Route path="/preview/:id" element={<ListPreviewPage />} />
-          <Route path="/list/" element={<ListPage />} />
+          <Route path="/list/:id" element={<ListPage />} />
         </Routes>
       </main>
       <Footer />

@@ -37,7 +37,7 @@
 
 .listScroll {
   overflow: auto;
-  max-height: 40vh;
+  max-height: 50vh;
   border-radius: 10px;
   padding-right: 10px;
 }
@@ -52,14 +52,14 @@
 .shareBtn {
   width: 30%;
   min-width: 150px;
-  margin-top: 25vh;
+  margin-top: 10vh;
   padding: 10px;
 }
 
 .copyBtn {
   width: 30%;
   min-width: 150px;
-  margin-top: 10vh;
+  margin-top: 25vh;
   padding: 10px;
 }
 

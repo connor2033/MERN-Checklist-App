@@ -6,13 +6,21 @@ const getChecklists = asyncHandler(async (req, res) => {
   res.json(checklists);
 });
 
-const createChecklist = asyncHandler(async (req, res) => {
-  const { title, details, listItems } = req.body;
+function removeEmptyItems(listItems) {
+  for (var i = 0; i < listItems.length; i++) {
+    if (listItems[i].itemName === "") listItems.splice(i, 1);
+  }
+  return listItems;
+}
 
-  if (!title || !details || !listItems) {
+const createChecklist = asyncHandler(async (req, res) => {
+  var { title, details, listItems } = req.body;
+
+  if (!title || !listItems) {
     res.status(400);
     throw new Error("Fill all the required fields");
   } else {
+    listItems = removeEmptyItems(listItems);
     const checklist = new Checklist({
       title,
       details,
@@ -43,7 +51,7 @@ const updateChecklist = asyncHandler(async (req, res) => {
   if (checklist) {
     checklist.title = title;
     checklist.details = details;
-    checklist.listItems = listItems;
+    checklist.listItems = removeEmptyItems(listItems);
 
     const updatedChecklist = await checklist.save();
     res.json(updatedChecklist);

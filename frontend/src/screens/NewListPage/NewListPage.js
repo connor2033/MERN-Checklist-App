@@ -134,14 +134,23 @@ function NewListPage() {
   // handle keyDown event for add
   const handleAddKey = (event, index) => {
     if (event.key === "Enter") {
-      handleAddClick(index);
+      if (index === checklist.listItems.length - 1) {
+        handleAddClick(index);
+      } else if (checklist.listItems[index + 1].itemName !== "") {
+        handleAddClick(index);
+      }
     }
   };
 
   // send focus to specified id on Enter
   const handleFocus = (event, id) => {
-    if (event.key === "Enter") {
-      document.getElementById(id.toString()).focus();
+    if (event.key === "Enter" || event.key === "ArrowDown") {
+      if (id < checklist.listItems.length || id === "detailBox")
+        document.getElementById(id.toString()).focus();
+    } else if (event.key === "ArrowUp") {
+      if (id - 1 > 0) document.getElementById((id - 2).toString()).focus();
+      else if (id === 1) document.getElementById("detailBox").focus();
+      else if (id === 0) document.getElementById("titleBox").focus();
     }
   };
 
@@ -303,7 +312,7 @@ function NewListPage() {
               </Button>
             </Row>
           </div>
-          {/* \/ for testing list as JSON */}
+          {/* \/ for debugging */}
           {/* <div style={{ marginTop: 20 }}>{JSON.stringify(checklist)}</div> */}
         </Container>
       </div>
