@@ -30,6 +30,37 @@ function ListPage() {
     setChecklist(newChecklist);
   };
 
+  // const putChecklist = async () => {
+  //   const config = {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   };
+
+  //   const { data } = await axios.put(
+  //     "/api/checklist/" + checklist.id,
+  //     checklist,
+  //     config
+  //   );
+
+  //   console.log(data);
+  //   window.location.href = "/preview/" + data._id;
+  // };
+
+  // const handleCheck = (index) => {
+  //   const newChecklist = {
+  //     title: checklist.title,
+  //     details: checklist.details,
+  //     listItems: [...checklist.listItems],
+  //   };
+
+  //   if (newChecklist.listItems[index].isChecked === "true")
+  //     newChecklist.listItems[index].isChecked = "false";
+  //   else newChecklist.listItems[index].isChecked = "true";
+
+  //   setChecklist(newChecklist);
+  // };
+
   useEffect(() => {
     getChecklist();
   }, [getChecklist]);
@@ -50,14 +81,11 @@ function ListPage() {
           <div className="listScrollBox">
             {/* This is an item */}
             <Row style={{ marginLeft: "0px", width: "98%" }}>
-              {checklist.listItems.map((item) => {
+              {checklist.listItems.map((item, index) => {
                 if (item.itemType === "heading") {
                   return (
                     <Row className="headingListShell" key={item._id}>
                       <Col>{item.itemName}</Col>
-                      <Col
-                        style={{ display: "flex", justifyContent: "right" }}
-                      ></Col>
                     </Row>
                   );
                 }
@@ -66,10 +94,57 @@ function ListPage() {
                   <Row className="itemListShell" key={item._id}>
                     <Col>{item.itemName}</Col>
                     <Col style={{ display: "flex", justifyContent: "right" }}>
-                      <div>✔</div>
+                      <input
+                        type="checkbox"
+                        id={"check" + item._id}
+                        className="checky"
+                        // checked
+                        // onClick={() => handleCheck(index)}
+                      />
+                      <label for={"check" + item._id}>
+                        <div id="tick_mark"></div>
+                      </label>
                     </Col>
                   </Row>
                 );
+
+                // if (item.isChecked === "true") {
+                //   return (
+                //     <Row className="itemListShell" key={item._id}>
+                //       <Col>{item.itemName}</Col>
+                //       <Col style={{ display: "flex", justifyContent: "right" }}>
+                //         <input
+                //           type="checkbox"
+                //           id={"check" + item._id}
+                //           className="checky"
+                //           checked
+                //           // onClick={() => handleCheck(index)}
+                //         />
+                //         <label for={"check" + item._id}>
+                //           <div id="tick_mark"></div>
+                //         </label>
+                //       </Col>
+                //     </Row>
+                //   );
+                // } else {
+                //   return (
+                //     <Row className="itemListShell" key={item._id}>
+                //       <Col>{item.itemName}</Col>
+                //       <Col style={{ display: "flex", justifyContent: "right" }}>
+                //         <input
+                //           type="checkbox"
+                //           id={"check" + item._id}
+                //           className="checky"
+                //           unchecked
+                //           // onClick={() => handleCheck(index)}
+                //         />
+                //         <label for={"check" + item._id}>
+                //           <div id="tick_mark"></div>
+                //         </label>
+                //       </Col>
+                //     </Row>
+                //   );
+                // }
               })}
 
               {/* <Row className="headingListShell">
@@ -85,6 +160,8 @@ function ListPage() {
             </Row>
           </div>
         </div>
+        {/* \/ for debugging */}
+        {/* <div style={{ marginTop: 20 }}>{JSON.stringify(checklist)}</div> */}
       </Container>
     </div>
   );

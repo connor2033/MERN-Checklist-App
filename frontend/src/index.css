@@ -14,7 +14,7 @@ code {
 
 /* Bootswatch overwrites */
 :root {
-  --bs-primary-rgb: 212, 28, 0;
+  --bs-primary-rgb: 212, 28, 0; /* Navbar colour */
   --bs-secondary-rgb: 173, 181, 189;
   --bs-success-rgb: 2, 184, 117;
   --bs-info-rgb: 23, 162, 184;
