@@ -18,6 +18,7 @@ function ListPage() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const getChecklist = async () => {
+    console.log("Get Checklist");
     const { data } = await axios.get("/api/checklist/" + id);
 
     const newChecklist = {
@@ -30,40 +31,52 @@ function ListPage() {
     setChecklist(newChecklist);
   };
 
-  // const putChecklist = async () => {
-  //   const config = {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
-
-  //   const { data } = await axios.put(
-  //     "/api/checklist/" + checklist.id,
-  //     checklist,
-  //     config
-  //   );
-
-  //   console.log(data);
-  //   window.location.href = "/preview/" + data._id;
-  // };
-
-  // const handleCheck = (index) => {
-  //   const newChecklist = {
-  //     title: checklist.title,
-  //     details: checklist.details,
-  //     listItems: [...checklist.listItems],
-  //   };
-
-  //   if (newChecklist.listItems[index].isChecked === "true")
-  //     newChecklist.listItems[index].isChecked = "false";
-  //   else newChecklist.listItems[index].isChecked = "true";
-
-  //   setChecklist(newChecklist);
-  // };
-
   useEffect(() => {
     getChecklist();
-  }, [getChecklist]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // const scheduleGetChecklist = setInterval(() => {
+  //   console.log("Someone Scheduled me to run every second");
+  //   getChecklist();
+  // }, 5000);
+
+  const putChecklist = async () => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const { data } = await axios.put("/api/checklist/" + id, checklist, config);
+
+    console.log(data);
+  };
+
+  const handleCheck = (index) => {
+    const newChecklist = {
+      title: checklist.title,
+      details: checklist.details,
+      listItems: [...checklist.listItems],
+    };
+
+    if (document.getElementById(index).checked) {
+      newChecklist.listItems[index].isChecked = "true";
+    } else {
+      newChecklist.listItems[index].isChecked = "false";
+    }
+
+    setChecklist(newChecklist);
+    putChecklist();
+  };
+
+  function checkedValue(isCheckedBool) {
+    if (isCheckedBool === "true") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
@@ -84,84 +97,38 @@ function ListPage() {
               {checklist.listItems.map((item, index) => {
                 if (item.itemType === "heading") {
                   return (
-                    <Row className="headingListShell" key={item._id}>
+                    <Row className="headingListShell" key={index}>
                       <Col>{item.itemName}</Col>
                     </Row>
                   );
                 }
 
                 return (
-                  <Row className="itemListShell" key={item._id}>
+                  <Row className="itemListShell" key={index}>
                     <Col>{item.itemName}</Col>
                     <Col style={{ display: "flex", justifyContent: "right" }}>
                       <input
                         type="checkbox"
-                        id={"check" + item._id}
+                        id={index}
                         className="checky"
-                        // checked
-                        // onClick={() => handleCheck(index)}
+                        onClick={() => handleCheck(index)}
+                        checked={checkedValue(item.isChecked)}
                       />
-                      <label for={"check" + item._id}>
+                      <label for={index}>
                         <div id="tick_mark"></div>
                       </label>
                     </Col>
                   </Row>
                 );
-
-                // if (item.isChecked === "true") {
-                //   return (
-                //     <Row className="itemListShell" key={item._id}>
-                //       <Col>{item.itemName}</Col>
-                //       <Col style={{ display: "flex", justifyContent: "right" }}>
-                //         <input
-                //           type="checkbox"
-                //           id={"check" + item._id}
-                //           className="checky"
-                //           checked
-                //           // onClick={() => handleCheck(index)}
-                //         />
-                //         <label for={"check" + item._id}>
-                //           <div id="tick_mark"></div>
-                //         </label>
-                //       </Col>
-                //     </Row>
-                //   );
-                // } else {
-                //   return (
-                //     <Row className="itemListShell" key={item._id}>
-                //       <Col>{item.itemName}</Col>
-                //       <Col style={{ display: "flex", justifyContent: "right" }}>
-                //         <input
-                //           type="checkbox"
-                //           id={"check" + item._id}
-                //           className="checky"
-                //           unchecked
-                //           // onClick={() => handleCheck(index)}
-                //         />
-                //         <label for={"check" + item._id}>
-                //           <div id="tick_mark"></div>
-                //         </label>
-                //       </Col>
-                //     </Row>
-                //   );
-                // }
               })}
-
-              {/* <Row className="headingListShell">
-                <Col>Wednesday</Col>
-                <Col style={{ display: "flex", justifyContent: "right" }}></Col>
-              </Row>
-              <Row className="itemListShell">
-                <Col>List item</Col>
-                <Col style={{ display: "flex", justifyContent: "right" }}>
-                  <div>✔</div>
-                </Col>
-              </Row> */}
             </Row>
           </div>
         </div>
+
         {/* \/ for debugging */}
-        {/* <div style={{ marginTop: 20 }}>{JSON.stringify(checklist)}</div> */}
+        {/* <pre style={{ marginTop: 20 }}>
+          {JSON.stringify(checklist, null, 4)}
+        </pre> */}
       </Container>
     </div>
   );

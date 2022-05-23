@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import {
   Navbar,
   Nav,
@@ -10,6 +10,13 @@ import {
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [searchString, setSearchString] = useState("abc");
+
+  const searchChecklist = async () => {
+    console.log("/list/" + searchString);
+    window.location.href = "/list/" + searchString;
+  };
+
   return (
     <Navbar bg="primary" expand="lg" variant="dark" sticky="top">
       <Container>
@@ -32,8 +39,11 @@ const Header = () => {
               placeholder="MyList Code"
               className="me-2"
               aria-label="Search"
+              onChange={(e) => setSearchString(e.target.value)}
             />
-            <Button variant="outline-light">Find</Button>
+            <Button variant="outline-light" onClick={searchChecklist}>
+              Search
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>
