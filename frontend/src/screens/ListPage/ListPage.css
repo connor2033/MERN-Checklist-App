@@ -35,6 +35,15 @@
   color: var(--bs-body-color);
 }
 
+.itemListShell:hover {
+  /* background-color: #e3e3e3; */
+}
+
+.itemName {
+  color: var(--bs-body-color);
+  transition: color 0.25s;
+}
+
 .headingListShell {
   margin-bottom: 10px;
   margin-left: 0px;
@@ -42,9 +51,9 @@
   padding-left: 10px;
   background-color: transparent;
   max-height: 3em;
-  color: var(--bs-body-color);
   font-weight: 600;
   text-decoration: underline;
+  color: var(--bs-body-color);
 }
 
 /* Check Box  */

@@ -36,11 +36,6 @@ function ListPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // const scheduleGetChecklist = setInterval(() => {
-  //   console.log("Someone Scheduled me to run every second");
-  //   getChecklist();
-  // }, 5000);
-
   const putChecklist = async () => {
     const config = {
       headers: {
@@ -49,7 +44,6 @@ function ListPage() {
     };
 
     const { data } = await axios.put("/api/checklist/" + id, checklist, config);
-
     console.log(data);
   };
 
@@ -62,16 +56,23 @@ function ListPage() {
 
     if (document.getElementById(index).checked) {
       newChecklist.listItems[index].isChecked = "true";
+      document.getElementById("name" + index).style.color = "#9e9e9e";
     } else {
       newChecklist.listItems[index].isChecked = "false";
+      document.getElementById("name" + index).style.color = "";
     }
 
     setChecklist(newChecklist);
     putChecklist();
   };
 
-  function checkedValue(isCheckedBool) {
-    if (isCheckedBool === "true") {
+  function checkedValue(index) {
+    if (checklist.listItems[index].isChecked === "true") {
+      // if (document.getElementById("name" + index)) {
+      //   document.getElementById("name" + index).style.color = "#9e9e9e";
+      // }
+      // console.log(checklist);
+      // document.getElementById("name" + index).style.color = "#9e9e9e";
       return true;
     } else {
       return false;
@@ -105,14 +106,16 @@ function ListPage() {
 
                 return (
                   <Row className="itemListShell" key={index}>
-                    <Col>{item.itemName}</Col>
+                    <Col className="itemName" id={"name" + index}>
+                      {item.itemName}
+                    </Col>
                     <Col style={{ display: "flex", justifyContent: "right" }}>
                       <input
                         type="checkbox"
                         id={index}
                         className="checky"
                         onClick={() => handleCheck(index)}
-                        checked={checkedValue(item.isChecked)}
+                        checked={checkedValue(index)}
                       />
                       <label for={index}>
                         <div id="tick_mark"></div>
