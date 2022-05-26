@@ -1,0 +1,101 @@
+.editListCard {
+  margin-top: 6%;
+  margin-bottom: 6%;
+  padding: 5vh;
+  padding-bottom: 3vh;
+  background-color: lightgray;
+  border-radius: 15px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.scrollBox {
+  overflow: auto;
+  min-height: 160px;
+  max-height: 40vh;
+  border-radius: 10px;
+}
+
+.saveBtn {
+  width: 100px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* removes dropdown caret */
+/* .dropdown-toggle::after {
+  display: none;
+} */
+
+.listNameBox {
+  border: transparent;
+  background-color: transparent;
+  width: 100%;
+
+  display: block;
+  font-size: 2em;
+  margin-bottom: 0.3em;
+  font-weight: bold;
+  color: var(--bs-body-color);
+}
+
+.listDetailsBox {
+  resize: none;
+  border: transparent;
+  height: auto;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 15px;
+  color: var(--bs-body-color);
+}
+
+.addRemoveBtn {
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 40px;
+  text-align: center;
+  padding: 10px;
+}
+
+.newHeadingShell {
+  margin-bottom: 5px;
+  min-width: 85%;
+  padding: 10px;
+  padding-left: 10px;
+  padding-bottom: 50px;
+  background-color: transparent;
+  max-height: 3em;
+}
+
+.newItemshell {
+  margin-bottom: 10px;
+  min-width: 85%;
+  padding: 10px;
+  padding-left: 20px;
+  background-color: #ededed;
+  border-radius: 10px;
+  max-height: 3em;
+}
+
+.inputBox {
+  border: transparent;
+  background-color: transparent;
+  width: 100%;
+  color: var(--bs-body-color);
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+@media screen and (min-width: 1500px) {
+  .editListCard {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .editListCard {
+    width: 80%;
+  }
+}

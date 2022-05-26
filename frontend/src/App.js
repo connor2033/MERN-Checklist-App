@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NewListPage from "./screens/NewListPage/NewListPage";
 import ListPreviewPage from "./screens/ListPreviewPage/ListPreviewPage";
 import ListPage from "./screens/ListPage/ListPage";
+import EditListPage from "./screens/EditListPage/EditListPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/newlist" element={<NewListPage />} />
           <Route path="/preview/:id" element={<ListPreviewPage />} />
           <Route path="/list/:id" element={<ListPage />} />
+          <Route path="/list/edit/:id" element={<EditListPage />} />
         </Routes>
       </main>
       <Footer />

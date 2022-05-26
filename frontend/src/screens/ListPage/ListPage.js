@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
 import "./ListPage.css";
 
 function ListPage() {
@@ -132,6 +132,17 @@ function ListPage() {
         {/* <pre style={{ marginTop: 20 }}>
           {JSON.stringify(checklist, null, 4)}
         </pre> */}
+        <div style={{ textAlign: "right" }}>
+          <Link to={"/list/edit/" + id}>
+            <Button
+              variant="secondary"
+              className="editBtn"
+              // onClick={(window.location.href = "/list/edit/" + id)}
+            >
+              Edit
+            </Button>
+          </Link>
+        </div>
       </Container>
     </div>
   );

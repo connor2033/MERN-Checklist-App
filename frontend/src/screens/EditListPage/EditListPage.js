@@ -6,32 +6,52 @@ import {
   ButtonGroup,
   Dropdown,
 } from "react-bootstrap";
-import "./NewListPage.css";
-import { useState } from "react";
+import "./EditListPage.css";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
-function NewListPage() {
+function EditListPage() {
+  let { id } = useParams();
+
   const [checklist, setChecklist] = useState({
     title: "",
     details: "",
     listItems: [{ itemType: "checklistItem", itemName: "", isChecked: false }],
   });
 
-  const postChecklist = async () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const getChecklist = async () => {
+    console.log("Get Checklist");
+    const { data } = await axios.get("/api/checklist/" + id);
+
+    const newChecklist = {
+      title: data.title,
+      details: data.details,
+      listItems: [...data.listItems],
+      _id: data._id,
+    };
+
+    setChecklist(newChecklist);
+  };
+
+  useEffect(() => {
+    getChecklist();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const putChecklist = async () => {
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
 
-    const { data } = await axios.post(
-      "/api/checklist/create",
-      checklist,
-      config
-    );
+    console.log(checklist);
 
+    const { data } = await axios.put("/api/checklist/" + id, checklist, config);
     console.log(data);
-    window.location.href = "/preview/" + data._id;
+    window.location.href = "/list/" + id;
   };
 
   // handle input change
@@ -157,12 +177,13 @@ function NewListPage() {
   return (
     <>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Container className="newListCard">
+        <Container className="editListCard">
           <div>
             {/* List Name */}
             <Row>
               <input
                 type="text"
+                value={checklist.title}
                 placeholder="List Name"
                 maxLength="48"
                 autoComplete="off"
@@ -180,6 +201,7 @@ function NewListPage() {
             <Row>
               <input
                 type="text"
+                value={checklist.details}
                 placeholder="Details..."
                 maxLength="240"
                 autoComplete="off"
@@ -306,9 +328,9 @@ function NewListPage() {
               <Button
                 variant="dark"
                 className="saveBtn"
-                onClick={() => postChecklist()}
+                onClick={() => putChecklist()}
               >
-                Create
+                Save
               </Button>
             </Row>
           </div>
@@ -322,4 +344,4 @@ function NewListPage() {
   );
 }
 
-export default NewListPage;
+export default EditListPage;

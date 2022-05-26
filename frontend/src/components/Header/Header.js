@@ -10,7 +10,7 @@ import {
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [searchString, setSearchString] = useState("abc");
+  const [searchString, setSearchString] = useState("");
 
   const searchChecklist = async () => {
     console.log("/list/" + searchString);
