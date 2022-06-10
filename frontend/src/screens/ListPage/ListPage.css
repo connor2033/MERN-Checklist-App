@@ -1,6 +1,7 @@
 .listCard {
-  margin-top: 6%;
-  margin-bottom: 6%;
+  /* margin-top: 6%;
+  margin-bottom: 6%; */
+  margin: 6%;
   padding: 5vh;
   padding-bottom: 3vh;
   background-color: lightgray;
@@ -24,26 +25,6 @@
   border-radius: 10px;
 }
 
-.itemListShell {
-  margin-bottom: 10px;
-  margin-left: 0px;
-  padding: 10px;
-  padding-left: 20px;
-  background-color: #ededed;
-  border-radius: 10px;
-  max-height: 3em;
-  color: var(--bs-body-color);
-}
-
-.itemListShell:hover {
-  /* background-color: #e3e3e3; */
-}
-
-.itemName {
-  color: var(--bs-body-color);
-  transition: color 0.25s;
-}
-
 .headingListShell {
   margin-bottom: 10px;
   margin-left: 0px;
@@ -56,6 +37,38 @@
   color: var(--bs-body-color);
 }
 
+.itemListShell {
+  margin-bottom: 10px;
+  margin-left: 0px;
+  padding: 10px;
+  padding-left: 20px;
+  background-color: #ededed;
+  border-radius: 10px;
+  color: var(--bs-body-color);
+  position: relative;
+}
+
+/* .itemListShell:hover {
+  background-color: #e3e3e3;
+} */
+
+.itemName {
+  display: inline-block;
+  vertical-align: top;
+  color: var(--bs-body-color);
+  transition: color 0.25s;
+  width: 80%;
+  height: 100%;
+}
+
+.checkDiv {
+  display: inline-block;
+  vertical-align: top;
+  /* border: 1px solid red; */
+  width: 20%;
+  height: 100%;
+}
+
 /* Check Box  */
 
 .checky {
@@ -65,8 +78,11 @@
 label {
   width: 40px;
   height: 40px;
-  margin-top: 16px;
-  margin-right: 0px;
+  margin-top: 0px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-right: 10px;
   background-color: lightgray;
   transform: translateY(-50%);
   border-radius: 50%;

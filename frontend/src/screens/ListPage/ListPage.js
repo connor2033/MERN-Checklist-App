@@ -105,11 +105,11 @@ function ListPage() {
                 }
 
                 return (
-                  <Row className="itemListShell" key={index}>
-                    <Col className="itemName" id={"name" + index}>
+                  <div className="itemListShell" key={index}>
+                    <div className="itemName" id={"name" + index}>
                       {item.itemName}
-                    </Col>
-                    <Col style={{ display: "flex", justifyContent: "right" }}>
+                    </div>
+                    <div className="checkDiv">
                       <input
                         type="checkbox"
                         id={index}
@@ -120,8 +120,8 @@ function ListPage() {
                       <label for={index}>
                         <div id="tick_mark"></div>
                       </label>
-                    </Col>
-                  </Row>
+                    </div>
+                  </div>
                 );
               })}
             </Row>
