@@ -1,6 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import "./ListPage.css";
 
@@ -68,14 +75,17 @@ function ListPage() {
 
   function checkedValue(index) {
     if (checklist.listItems[index].isChecked === "true") {
-      // if (document.getElementById("name" + index)) {
-      //   document.getElementById("name" + index).style.color = "#9e9e9e";
-      // }
-      // console.log(checklist);
-      // document.getElementById("name" + index).style.color = "#9e9e9e";
       return true;
     } else {
       return false;
+    }
+  }
+
+  function checkedStyle(index) {
+    if (checklist.listItems[index].isChecked === "true") {
+      return { color: "#9e9e9e" };
+    } else {
+      return { color: "#343a40" };
     }
   }
 
@@ -85,7 +95,7 @@ function ListPage() {
         <div>
           <Row>
             {/* List Name */}
-            <h1 className="listNameBox">{checklist.title}</h1>
+            <div className="listNameDisp">{checklist.title}</div>
             <hr />
           </Row>
           {/* Details */}
@@ -106,7 +116,11 @@ function ListPage() {
 
                 return (
                   <div className="itemListShell" key={index}>
-                    <div className="itemName" id={"name" + index}>
+                    <div
+                      className="itemName"
+                      id={"name" + index}
+                      style={checkedStyle(index)}
+                    >
                       {item.itemName}
                     </div>
                     <div className="checkDiv">
@@ -116,6 +130,7 @@ function ListPage() {
                         className="checky"
                         onClick={() => handleCheck(index)}
                         checked={checkedValue(index)}
+                        readOnly
                       />
                       <label for={index}>
                         <div id="tick_mark"></div>
@@ -136,12 +151,28 @@ function ListPage() {
           <Link to={"/list/edit/" + id}>
             <Button
               variant="secondary"
-              className="editBtn"
+              className="bottomBtn"
               // onClick={(window.location.href = "/list/edit/" + id)}
             >
               Edit
             </Button>
           </Link>
+          <OverlayTrigger
+            trigger="click"
+            rootClose
+            placement="right"
+            overlay={<Tooltip>Copied Link</Tooltip>}
+          >
+            <Button
+              variant="secondary"
+              className="bottomBtn"
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+              }}
+            >
+              Share
+            </Button>
+          </OverlayTrigger>
         </div>
       </Container>
     </div>

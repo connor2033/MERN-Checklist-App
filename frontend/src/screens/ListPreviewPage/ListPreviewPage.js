@@ -1,5 +1,4 @@
 import {
-  Col,
   Container,
   Row,
   Button,
@@ -50,13 +49,14 @@ function ListPreviewPage() {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <Col style={{ display: "flex", justifyContent: "center" }}>
+    <div className="wrapperDiv">
+      {/* Left Side */}
+      <div className="listSide">
         <Container className="previewLeftContainer">
           <div>
             <Row>
               {/* List Name */}
-              <h1 className="listNameBox">{checklist.title}</h1>
+              <h1 className="listNamePreview">{checklist.title}</h1>
               <hr />
             </Row>
             {/* Details */}
@@ -82,12 +82,12 @@ function ListPreviewPage() {
             </div>
           </div>
         </Container>
-      </Col>
+      </div>
 
       {/* Right Side */}
-      <Col>
+      <div className="buttonSide">
         <Container className="previewRightContainer">
-          <Row style={{ display: "flex", justifyContent: "center" }}>
+          <div className="copyButtonWrapper">
             <OverlayTrigger
               placement="top"
               overlay={
@@ -112,13 +112,13 @@ function ListPreviewPage() {
                 Make a Copy
               </Button>
             </OverlayTrigger>
-          </Row>
-          <Row style={{ display: "flex", justifyContent: "center" }}>
+          </div>
+          <div className="shareButtonWrapper">
             <OverlayTrigger
               trigger="click"
               rootClose
               placement="right"
-              overlay={<Tooltip id={"top"}>Copied to Clipboard</Tooltip>}
+              overlay={<Tooltip id={"top"}>Copied Link</Tooltip>}
             >
               <Button
                 variant="outline-success"
@@ -128,12 +128,12 @@ function ListPreviewPage() {
                   navigator.clipboard.writeText(window.location.href);
                 }}
               >
-                Share
+                Share Preview
               </Button>
             </OverlayTrigger>
-          </Row>
+          </div>
         </Container>
-      </Col>
+      </div>
     </div>
   );
 }

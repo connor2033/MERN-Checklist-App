@@ -30,7 +30,7 @@
   padding: 10px;
   padding-left: 10px;
   background-color: transparent;
-  max-height: 3em;
+  max-height: 4em;
   font-weight: 600;
   text-decoration: underline;
 }
@@ -51,7 +51,7 @@
 
 .shareBtn {
   width: 30%;
-  min-width: 150px;
+  min-width: 160px;
   margin-top: 10vh;
   padding: 10px;
 }
@@ -63,7 +63,7 @@
   padding: 10px;
 }
 
-.listNameBox {
+.listNamePreview {
   border: transparent;
   background-color: transparent;
   width: 100%;
@@ -99,4 +99,103 @@
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #c9c9c9;
+}
+
+.wrapperDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.listSide {
+  width: 50%;
+}
+
+.buttonSide {
+  width: 50%;
+}
+
+.copyButtonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.shareButtonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1030px) {
+  .wrapperDiv {
+    display: block;
+    justify-content: center;
+  }
+
+  .listSide {
+    width: 90%;
+    margin: auto;
+  }
+
+  .previewLeftContainer {
+    margin: auto;
+    margin-top: 6vh;
+    width: 90%;
+    height: auto;
+  }
+
+  .listNamePreview {
+    font-size: 1.5em;
+  }
+
+  .buttonSide {
+    width: 90%;
+    margin: auto;
+  }
+
+  .previewRightContainer {
+    padding: 0;
+    margin: auto;
+    margin-top: 60px;
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+  }
+
+  .copyButtonWrapper {
+    display: inline-block;
+    margin: 0;
+  }
+
+  .copyBtn {
+    width: 30%;
+    min-width: 140px;
+    margin-top: 0;
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 18px;
+  }
+
+  .shareButtonWrapper {
+    display: inline-block;
+    margin: 0;
+  }
+
+  .shareBtn {
+    width: 30%;
+    min-width: 125px;
+    margin-top: 0;
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .previewRightContainer {
+    padding: 0;
+    margin: auto;
+    margin-top: 30px;
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+  }
 }
