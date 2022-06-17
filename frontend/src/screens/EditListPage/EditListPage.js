@@ -1,11 +1,4 @@
-import {
-  Container,
-  Row,
-  Button,
-  Col,
-  ButtonGroup,
-  Dropdown,
-} from "react-bootstrap";
+import { Container, Row, Button, ButtonGroup, Dropdown } from "react-bootstrap";
 import "./EditListPage.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -188,7 +181,7 @@ function EditListPage() {
                 maxLength="48"
                 autoComplete="off"
                 autoFocus="autofocus"
-                className="listNameBox"
+                className="editListName"
                 id="titleBox"
                 onKeyUp={(e) => {
                   handleFocus(e, "detailBox");
@@ -219,11 +212,8 @@ function EditListPage() {
                 // HEADING
                 if (item.itemType === "heading") {
                   return (
-                    <Row
-                      style={{ marginLeft: "0px", width: "100%" }}
-                      key={index}
-                    >
-                      <Col className="newHeadingShell">
+                    <div className="itemRow" key={index}>
+                      <div className="editHeadingBlock">
                         <input
                           name="itemName"
                           value={item.itemName}
@@ -241,9 +231,9 @@ function EditListPage() {
                             handleFocus(e, index + 1);
                           }}
                         ></input>
-                        <hr style={{ width: "70%" }} />
-                      </Col>
-                      <Col>
+                        <hr className="editHeadingUnderline" />
+                      </div>
+                      <div className="editButtonBlock">
                         <Dropdown as={ButtonGroup} style={{ marginTop: "5px" }}>
                           <Button
                             variant="success"
@@ -267,15 +257,15 @@ function EditListPage() {
                             </Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>
-                      </Col>
-                    </Row>
+                      </div>
+                    </div>
                   );
                 }
 
                 // CHECKLIST ITEM
                 return (
-                  <Row style={{ marginLeft: "0px", width: "100%" }} key={index}>
-                    <Col className="newItemshell">
+                  <div className="itemRow" key={index}>
+                    <div className="editItemBlock">
                       <input
                         name="itemName"
                         value={item.itemName}
@@ -293,8 +283,8 @@ function EditListPage() {
                           handleFocus(e, index + 1);
                         }}
                       ></input>
-                    </Col>
-                    <Col>
+                    </div>
+                    <div className="editButtonBlock">
                       <Dropdown as={ButtonGroup} style={{ marginTop: "5px" }}>
                         <Button
                           variant="success"
@@ -318,8 +308,8 @@ function EditListPage() {
                           </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
-                    </Col>
-                  </Row>
+                    </div>
+                  </div>
                 );
               })}
             </div>

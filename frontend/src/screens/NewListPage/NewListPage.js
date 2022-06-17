@@ -1,11 +1,4 @@
-import {
-  Container,
-  Row,
-  Button,
-  Col,
-  ButtonGroup,
-  Dropdown,
-} from "react-bootstrap";
+import { Container, Row, Button, ButtonGroup, Dropdown } from "react-bootstrap";
 import "./NewListPage.css";
 import { useState } from "react";
 import axios from "axios";
@@ -167,7 +160,7 @@ function NewListPage() {
                 maxLength="48"
                 autoComplete="off"
                 autoFocus="autofocus"
-                className="listNameBox"
+                className="newListName"
                 id="titleBox"
                 onKeyUp={(e) => {
                   handleFocus(e, "detailBox");
@@ -197,11 +190,8 @@ function NewListPage() {
                 // HEADING
                 if (item.itemType === "heading") {
                   return (
-                    <Row
-                      style={{ marginLeft: "0px", width: "100%" }}
-                      key={index}
-                    >
-                      <Col className="newHeadingShell">
+                    <div className="itemRow" key={index}>
+                      <div className="newHeadingBlock">
                         <input
                           name="itemName"
                           value={item.itemName}
@@ -219,9 +209,9 @@ function NewListPage() {
                             handleFocus(e, index + 1);
                           }}
                         ></input>
-                        <hr style={{ width: "70%" }} />
-                      </Col>
-                      <Col>
+                        <hr className="headingUnderline" />
+                      </div>
+                      <div className="buttonBlock">
                         <Dropdown as={ButtonGroup} style={{ marginTop: "5px" }}>
                           <Button
                             variant="success"
@@ -245,15 +235,15 @@ function NewListPage() {
                             </Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>
-                      </Col>
-                    </Row>
+                      </div>
+                    </div>
                   );
                 }
 
                 // CHECKLIST ITEM
                 return (
-                  <Row style={{ marginLeft: "0px", width: "100%" }} key={index}>
-                    <Col className="newItemshell">
+                  <div className="itemRow" key={index}>
+                    <div className="newItemBlock">
                       <input
                         name="itemName"
                         value={item.itemName}
@@ -271,8 +261,8 @@ function NewListPage() {
                           handleFocus(e, index + 1);
                         }}
                       ></input>
-                    </Col>
-                    <Col>
+                    </div>
+                    <div className="buttonBlock">
                       <Dropdown as={ButtonGroup} style={{ marginTop: "5px" }}>
                         <Button
                           variant="success"
@@ -296,8 +286,8 @@ function NewListPage() {
                           </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
-                    </Col>
-                  </Row>
+                    </div>
+                  </div>
                 );
               })}
             </div>

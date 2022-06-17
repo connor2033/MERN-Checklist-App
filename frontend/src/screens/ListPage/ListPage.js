@@ -157,6 +157,11 @@ function ListPage() {
               Edit
             </Button>
           </Link>
+          <Link to={"/preview/" + id}>
+            <Button variant="secondary" className="bottomBtn">
+              Preview
+            </Button>
+          </Link>
           <OverlayTrigger
             trigger="click"
             rootClose

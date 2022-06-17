@@ -3,6 +3,7 @@
   margin-bottom: 6%;
   padding: 5vh;
   padding-bottom: 3vh;
+  width: 80%;
   background-color: lightgray;
   border-radius: 15px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -26,7 +27,7 @@
   display: none;
 } */
 
-.listNameBox {
+.editListName {
   border: transparent;
   background-color: transparent;
   width: 100%;
@@ -56,19 +57,26 @@
   padding: 10px;
 }
 
-.newHeadingShell {
+.editHeadingBlock {
+  display: inline-block;
   margin-bottom: 5px;
-  min-width: 85%;
+  width: 90%;
   padding: 10px;
   padding-left: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   background-color: transparent;
   max-height: 3em;
 }
 
-.newItemshell {
+.editHeadingUnderline {
+  width: 70%;
+  margin-bottom: 0;
+}
+
+.editItemBlock {
+  display: inline-block;
   margin-bottom: 10px;
-  min-width: 85%;
+  width: 90%;
   padding: 10px;
   padding-left: 20px;
   background-color: #ededed;
@@ -88,14 +96,57 @@ input:focus {
   outline: none;
 }
 
-@media screen and (min-width: 1500px) {
-  .editListCard {
-    width: 50%;
-  }
+.itemRow {
+  margin-left: 0;
+  width: 100%;
 }
 
-@media screen and (max-width: 1500px) {
+.editButtonBlock {
+  display: inline-block;
+  vertical-align: top;
+  width: 5%;
+  margin-left: 5px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1030px) {
   .editListCard {
+    margin-top: 6%;
+    margin-bottom: 6%;
+    padding: 2vh;
+    padding-bottom: 2vh;
+    width: 90%;
+  }
+
+  .editListName {
+    width: 100%;
+
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 0.3em;
+    font-weight: bold;
+  }
+
+  .editItemBlock {
+    margin-bottom: 10px;
+    width: 65%;
+    padding: 5px;
+    border-radius: 10px;
+    max-height: 3em;
+  }
+
+  .editHeadingBlock {
+    margin-bottom: 10px;
+    width: 65%;
+    padding: 5px;
+    padding-bottom: 20px;
+    max-height: 3em;
+  }
+
+  .editHeadingUnderline {
     width: 80%;
+  }
+
+  .saveBtn {
+    margin-right: 12px;
   }
 }
