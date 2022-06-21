@@ -25,7 +25,7 @@ function ListPage() {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const getChecklist = async () => {
-    console.log("Get Checklist");
+    // console.log("Get Checklist: /api/checklist/" + id);
     const { data } = await axios.get("/api/checklist/" + id);
 
     const newChecklist = {
@@ -40,6 +40,9 @@ function ListPage() {
 
   useEffect(() => {
     getChecklist();
+    setInterval(() => {
+      getChecklist();
+    }, 5 * 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -165,7 +168,7 @@ function ListPage() {
           <OverlayTrigger
             trigger="click"
             rootClose
-            placement="right"
+            placement="top"
             overlay={<Tooltip>Copied Link</Tooltip>}
           >
             <Button

@@ -156,7 +156,7 @@ function NewListPage() {
             <Row>
               <input
                 type="text"
-                placeholder="List Name"
+                placeholder="New List Name"
                 maxLength="48"
                 autoComplete="off"
                 autoFocus="autofocus"

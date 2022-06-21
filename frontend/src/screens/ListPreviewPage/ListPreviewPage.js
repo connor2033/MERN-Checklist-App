@@ -56,7 +56,7 @@ function ListPreviewPage() {
           <div>
             <Row>
               {/* List Name */}
-              <h1 className="listNamePreview">{checklist.title}</h1>
+              <h1 className="listNamePreview">Preview: {checklist.title}</h1>
               <hr />
             </Row>
             {/* Details */}
@@ -117,7 +117,7 @@ function ListPreviewPage() {
             <OverlayTrigger
               trigger="click"
               rootClose
-              placement="right"
+              placement="top"
               overlay={<Tooltip id={"top"}>Copied Link</Tooltip>}
             >
               <Button

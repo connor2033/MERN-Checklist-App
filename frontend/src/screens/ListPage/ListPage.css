@@ -243,13 +243,24 @@ label:active {
   }
 }
 
+@media screen and (max-height: 700px) {
+  .listCard {
+    margin-top: 3%;
+  }
+
+  .listScrollBox {
+    max-height: 45vh;
+    /* border: 1px solid blue; */
+  }
+}
+
 @media screen and (min-height: 700px) and (max-height: 900px) {
   .listCard {
     margin-top: 3%;
   }
 
   .listScrollBox {
-    max-height: 60vh;
+    max-height: 45vh;
     /* border: 1px solid blue; */
   }
 }
@@ -271,6 +282,15 @@ label:active {
 
   .bottomBtn {
     width: 80px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .bottomBtn {
+    width: 70px;
     padding: 10px;
     margin-top: 20px;
     margin-right: 20px;

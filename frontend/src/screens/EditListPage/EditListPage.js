@@ -320,7 +320,7 @@ function EditListPage() {
                 className="saveBtn"
                 onClick={() => putChecklist()}
               >
-                Save
+                Save Edit
               </Button>
             </Row>
           </div>

@@ -19,7 +19,10 @@ const LandingPage = () => {
           </Link>
         </Row>
         <Row className="descText">
-          <p>Some text about creating a new list</p>
+          <p>
+            This is what this web app does and how to use it! My name is Connor
+            Haines (link to site) and I made this
+          </p>
         </Row>
       </Container>
     </div>
