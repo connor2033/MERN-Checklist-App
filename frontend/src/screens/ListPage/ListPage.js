@@ -42,7 +42,7 @@ function ListPage() {
     getChecklist();
     setInterval(() => {
       getChecklist();
-    }, 5 * 1000);
+    }, 15 * 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -55,6 +55,12 @@ function ListPage() {
 
     const { data } = await axios.put("/api/checklist/" + id, checklist, config);
     console.log(data);
+  };
+
+  const handleCheckRow = (index) => {
+    document.getElementById(index).checked =
+      !document.getElementById(index).checked;
+    handleCheck(index);
   };
 
   const handleCheck = (index) => {
@@ -118,7 +124,11 @@ function ListPage() {
                 }
 
                 return (
-                  <div className="itemListShell" key={index}>
+                  <div
+                    className="itemListShell"
+                    key={index}
+                    onClick={() => handleCheckRow(index)}
+                  >
                     <div
                       className="itemName"
                       id={"name" + index}

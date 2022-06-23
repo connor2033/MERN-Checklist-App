@@ -2978,7 +2978,7 @@ fieldset:disabled .btn {
 .btn-success.active:focus,
 .btn-success:active:focus,
 .show > .btn-success.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(40, 195, 138, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(230, 28, 0, 0.5);
 }
 .btn-success.disabled,
 .btn-success:disabled {
@@ -3276,7 +3276,7 @@ fieldset:disabled .btn {
 .btn-outline-success.active:focus,
 .btn-outline-success.dropdown-toggle.show:focus,
 .btn-outline-success:active:focus {
-  box-shadow: 0 0 0 0.25rem rgba(2, 184, 117, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(230, 28, 0, 0.5);
 }
 .btn-outline-success.disabled,
 .btn-outline-success:disabled {

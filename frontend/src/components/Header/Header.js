@@ -13,12 +13,20 @@ const Header = () => {
   const [searchString, setSearchString] = useState("");
 
   const searchChecklist = async () => {
-    console.log("/list/" + searchString);
-    window.location.href = "/list/" + searchString;
+    if (searchString.length > 0) {
+      console.log("/list/" + searchString);
+      window.location.href = "/list/" + searchString;
+    }
   };
 
   return (
-    <Navbar bg="primary" expand="lg" variant="dark" sticky="top">
+    <Navbar
+      bg="primary"
+      expand="lg"
+      variant="dark"
+      sticky="top"
+      className="myNavbar"
+    >
       <Container>
         <Navbar.Brand>
           <Link to="/">MyList</Link>

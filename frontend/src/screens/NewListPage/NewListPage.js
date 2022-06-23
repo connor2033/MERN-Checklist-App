@@ -294,7 +294,7 @@ function NewListPage() {
             <Row style={{ display: "flex", justifyContent: "right" }}>
               {/* Temp href to /preview */}
               <Button
-                variant="dark"
+                variant="success"
                 className="saveBtn"
                 onClick={() => postChecklist()}
               >

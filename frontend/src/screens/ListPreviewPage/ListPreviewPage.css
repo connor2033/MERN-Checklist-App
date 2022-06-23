@@ -85,22 +85,6 @@
   color: var(--bs-body-color);
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #ededed;
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #c9c9c9;
-}
-
 .wrapperDiv {
   display: flex;
   justify-content: center;
