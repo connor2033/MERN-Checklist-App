@@ -29,22 +29,22 @@ const Header = () => {
     >
       <Container>
         <Navbar.Brand>
-          <Link to="/">MyList</Link>
+          <Link to="/">Checkable</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>
-              <Link to="/">Home</Link>
+            <Nav.Link as={Link} to="/">
+              Home
             </Nav.Link>
-            <Nav.Link>
-              <Link to="/newlist">New List</Link>
+            <Nav.Link as={Link} to="/newlist">
+              New List
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
             <FormControl
               type="search"
-              placeholder="MyList Code"
+              placeholder="Checkable Code"
               className="me-2"
               aria-label="Search"
               onChange={(e) => setSearchString(e.target.value)}

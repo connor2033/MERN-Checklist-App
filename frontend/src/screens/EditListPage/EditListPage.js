@@ -253,7 +253,7 @@ function EditListPage() {
                             <Dropdown.Item
                               onClick={() => handleRemoveClick(index)}
                             >
-                              Remove
+                              Delete
                             </Dropdown.Item>
                           </Dropdown.Menu>
                         </Dropdown>
@@ -304,7 +304,7 @@ function EditListPage() {
                           <Dropdown.Item
                             onClick={() => handleRemoveClick(index)}
                           >
-                            Remove
+                            Delete
                           </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>

@@ -1,5 +1,5 @@
 .previewLeftContainer {
-  margin-top: 12vh;
+  margin-top: 15vh;
   margin-left: 20%;
   width: 40vw;
   height: auto;
@@ -43,7 +43,7 @@
 }
 
 .previewRightContainer {
-  padding: 5vh;
+  padding: 10vh;
   padding-bottom: 3vh;
   background-color: transparent;
   width: 75%;
@@ -121,7 +121,7 @@
 
   .previewLeftContainer {
     margin: auto;
-    margin-top: 2vh;
+    margin-top: 10vh;
     width: 90%;
     height: auto;
   }

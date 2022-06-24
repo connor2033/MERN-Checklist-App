@@ -1,5 +1,5 @@
 .newListCard {
-  margin-top: 6%;
+  margin-top: 18vh;
   margin-bottom: 6%;
   padding: 5vh;
   padding-bottom: 3vh;
@@ -110,7 +110,7 @@ input:focus {
 
 @media screen and (min-width: 300px) and (max-width: 1030px) {
   .newListCard {
-    margin-top: 6%;
+    margin-top: 10vh;
     margin-bottom: 6%;
     padding: 2vh;
     padding-bottom: 2vh;

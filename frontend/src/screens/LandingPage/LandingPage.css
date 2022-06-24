@@ -1,26 +1,111 @@
 .main {
-  min-height: 93vh;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .createButtonDiv {
   display: flex;
-  margin-top: 35vh;
+  margin-top: 30vh;
 }
 
 .createButton {
-  width: 300px;
+  width: 200px;
   display: flex;
   justify-content: center;
+  font-weight: 600;
+}
+
+.taglineText {
+  margin-top: 10vh;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  color: rgba(var(--bs-body-color));
 }
 
 .descText {
-  margin: 30px;
+  width: 800px;
+  margin: auto;
+  margin-top: 10vh;
   text-align: center;
-  font-size: medium;
+  font-size: 18px;
+  font-weight: 400;
+  color: #919191;
 }
 
-p {
-  font-family: Arial, Helvetica, sans-serif;
+.contactText {
+  width: 800px;
+  margin: auto;
+  margin-top: 3vh;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: #919191;
+}
+
+.personalLink {
+  font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    padding: 10px;
+  }
+
+  .createButtonDiv {
+    margin-top: 25vh;
+  }
+
+  .createButton {
+    width: 200px;
+  }
+
+  .taglineText {
+    margin-top: 5vh;
+    font-size: 26px;
+  }
+
+  .descText {
+    width: 90%;
+    margin-top: 5vh;
+    font-size: 16px;
+  }
+
+  .contactText {
+    width: 90%;
+    margin-top: 3vh;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  .main {
+    padding: 10px;
+  }
+
+  .createButtonDiv {
+    margin-top: 20vh;
+  }
+
+  .createButton {
+    width: 200px;
+  }
+
+  .taglineText {
+    margin-top: 5vh;
+    font-size: 26px;
+  }
+
+  .descText {
+    width: 90%;
+    margin-top: 5vh;
+    font-size: 16px;
+  }
+
+  .contactText {
+    width: 90%;
+    margin-top: 3vh;
+    font-size: 16px;
+  }
 }
