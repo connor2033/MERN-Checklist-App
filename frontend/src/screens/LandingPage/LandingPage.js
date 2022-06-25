@@ -17,9 +17,9 @@ const LandingPage = () => {
         </Row>
         <Row>
           <div className="descText">
-            With Checkable you can <b>Create</b> custom checklists with details
-            and headings, <b>Share</b> templates with large groups,
-            <b> Collaborate</b> with peers on a personal list, or keep it
+            With Checkable you can <b>Create</b> custom checklists, <b>Share</b>{" "}
+            templates with large groups,
+            <b> Collaborate</b> with peers on personal lists, or keep it
             private.
           </div>
         </Row>

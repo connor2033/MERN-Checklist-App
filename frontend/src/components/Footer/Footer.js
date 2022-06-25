@@ -16,7 +16,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col className="text-center py-3" style={{ color: "#dedede" }}>
-            <a href="http://ConnorHaines.net" target="_blank" rel="noreferrer">
+            <a href="https://ConnorHaines.net" target="_blank" rel="noreferrer">
               Created by Connor Haines
             </a>
           </Col>
