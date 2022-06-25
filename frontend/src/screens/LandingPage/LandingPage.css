@@ -14,6 +14,7 @@
   display: flex;
   justify-content: center;
   font-weight: 600;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .taglineText {
