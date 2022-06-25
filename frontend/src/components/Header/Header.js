@@ -29,7 +29,9 @@ const Header = () => {
     >
       <Container>
         <Navbar.Brand>
-          <Link to="/">Checkable</Link>
+          <Link to="/" className="siteName">
+            Checkable
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

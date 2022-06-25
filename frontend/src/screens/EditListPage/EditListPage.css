@@ -16,8 +16,13 @@
   border-radius: 10px;
 }
 
+.plus {
+  font-size: 32px;
+  font-weight: bolder;
+}
+
 .saveBtn {
-  width: 110px;
+  width: 120px;
   padding: 10px;
   margin-top: 20px;
 }
@@ -108,7 +113,7 @@ input:focus {
   margin-left: 5px;
 }
 
-@media screen and (min-width: 300px) and (max-width: 1030px) {
+@media screen and (max-width: 800px) {
   .editListCard {
     margin-bottom: 6%;
     padding: 2vh;
@@ -147,5 +152,15 @@ input:focus {
 
   .saveBtn {
     margin-right: 12px;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1100px) {
+  .editHeadingBlock {
+    width: 80%;
+  }
+
+  .editItemBlock {
+    width: 80%;
   }
 }

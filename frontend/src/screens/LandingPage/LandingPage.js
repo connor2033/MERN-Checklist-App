@@ -25,8 +25,8 @@ const LandingPage = () => {
             private.
           </div>
         </Row>
-        <Row className="contactText">
-          <div>
+        <Row>
+          <div className="contactText">
             If you'd like to get in contact with me or find more of my work, my
             website is{" "}
             <a

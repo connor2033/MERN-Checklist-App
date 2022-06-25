@@ -51,7 +51,7 @@
 
 .shareBtn {
   width: 30%;
-  min-width: 160px;
+  min-width: 170px;
   margin-top: 10vh;
   padding: 10px;
 }
@@ -151,11 +151,11 @@
 
   .copyBtn {
     width: 30%;
-    min-width: 140px;
+    min-width: 130px;
     margin-top: 0;
     margin-right: 10px;
     padding: 5px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .shareButtonWrapper {
@@ -165,11 +165,11 @@
 
   .shareBtn {
     width: 30%;
-    min-width: 125px;
+    min-width: 135px;
     margin-top: 0;
     margin-left: 10px;
     padding: 5px;
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 

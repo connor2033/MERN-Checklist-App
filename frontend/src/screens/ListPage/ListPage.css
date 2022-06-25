@@ -133,7 +133,7 @@ label:active {
   content: "";
   position: absolute;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 1px;
   opacity: 0;
   transition: 0.2s ease transform, 0.2s ease opacity;
 }
@@ -176,6 +176,7 @@ label:active {
   padding: 10px;
   margin-top: 20px;
   margin-right: 20px;
+  text-align: center;
 }
 
 .listNameDisp {
@@ -301,9 +302,9 @@ label:active {
 
 @media screen and (max-width: 380px) {
   .bottomBtn {
-    width: 65px;
+    width: 70px;
     padding: 10px;
     margin-top: 20px;
-    margin-right: 20px;
+    margin-right: 10px;
   }
 }
