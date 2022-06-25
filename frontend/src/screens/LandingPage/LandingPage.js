@@ -8,11 +8,9 @@ const LandingPage = () => {
     <div className="main">
       <Container>
         <Row className="createButtonDiv">
-          <Link to="/newlist">
-            <Button variant="success" size="lg" className="m-auto createButton">
-              Create a List
-            </Button>
-          </Link>
+          <Button variant="success" size="lg" className="m-auto createButton">
+            <Link to="/newlist">Create a List</Link>
+          </Button>
         </Row>
         <Row>
           <div className="taglineText">Create, Share, and Collaborate</div>
