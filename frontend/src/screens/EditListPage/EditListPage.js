@@ -238,7 +238,6 @@ function EditListPage() {
                           <Button
                             variant="success"
                             onClick={() => handleAddClick(index)}
-                            className="plus"
                           >
                             +
                           </Button>
