@@ -56,7 +56,10 @@ function ListPreviewPage() {
           <div>
             <Row>
               {/* List Name */}
-              <h1 className="listNamePreview">Preview: {checklist.title}</h1>
+              <div>
+                <h1 className="listNamePreview">Template: {checklist.title}</h1>
+              </div>
+
               <hr />
             </Row>
             {/* Details */}
@@ -128,7 +131,7 @@ function ListPreviewPage() {
                   navigator.clipboard.writeText(window.location.href);
                 }}
               >
-                Share Preview
+                Share Template
               </Button>
             </OverlayTrigger>
           </div>

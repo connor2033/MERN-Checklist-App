@@ -195,7 +195,7 @@ function EditListPage() {
               <input
                 type="text"
                 value={checklist.details}
-                placeholder="Details..."
+                placeholder="Description..."
                 maxLength="240"
                 autoComplete="off"
                 className="listDetailsBox"
@@ -314,7 +314,6 @@ function EditListPage() {
               })}
             </div>
             <Row style={{ display: "flex", justifyContent: "right" }}>
-              {/* Temp href to /preview */}
               <Button
                 variant="success"
                 className="saveBtn"

@@ -75,9 +75,9 @@
 
   .contactText {
     width: 90%;
+    margin: auto;
     margin-top: 3vh;
     font-size: 16px;
-    margin: auto;
     text-align: center;
   }
 }
@@ -108,9 +108,9 @@
 
   .contactText {
     width: 90%;
+    margin: auto;
     margin-top: 3vh;
     font-size: 16px;
-    margin: auto;
     text-align: center;
   }
 }

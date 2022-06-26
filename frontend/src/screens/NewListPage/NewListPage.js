@@ -24,7 +24,7 @@ function NewListPage() {
     );
 
     console.log(data);
-    window.location.href = "/preview/" + data._id;
+    window.location.href = "/list/" + data._id;
   };
 
   // handle input change
@@ -173,7 +173,7 @@ function NewListPage() {
             <Row>
               <input
                 type="text"
-                placeholder="Details..."
+                placeholder="Description..."
                 maxLength="240"
                 autoComplete="off"
                 className="listDetailsBox"
@@ -292,7 +292,6 @@ function NewListPage() {
               })}
             </div>
             <Row style={{ display: "flex", justifyContent: "right" }}>
-              {/* Temp href to /preview */}
               <Button
                 variant="success"
                 className="saveBtn"

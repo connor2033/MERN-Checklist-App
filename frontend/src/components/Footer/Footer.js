@@ -10,7 +10,7 @@ const Footer = () => {
         bottom: 0,
         display: "flex",
         justifyContent: "center",
-        zIndex: 0,
+        zIndex: -1,
       }}
     >
       <Container>

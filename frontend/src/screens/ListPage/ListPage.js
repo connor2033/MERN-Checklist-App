@@ -161,18 +161,9 @@ function ListPage() {
           {JSON.stringify(checklist, null, 4)}
         </pre> */}
         <div style={{ textAlign: "right" }}>
-          <Link to={"/list/edit/" + id}>
-            <Button
-              variant="secondary"
-              className="bottomBtn"
-              // onClick={(window.location.href = "/list/edit/" + id)}
-            >
-              Edit
-            </Button>
-          </Link>
-          <Link to={"/preview/" + id}>
+          <Link to={"/template/" + id}>
             <Button variant="secondary" className="bottomBtn">
-              Preview
+              Template
             </Button>
           </Link>
           <OverlayTrigger
@@ -191,6 +182,15 @@ function ListPage() {
               Share
             </Button>
           </OverlayTrigger>
+          <Link to={"/list/edit/" + id}>
+            <Button
+              variant="secondary"
+              className="bottomBtn"
+              // onClick={(window.location.href = "/list/edit/" + id)}
+            >
+              Edit
+            </Button>
+          </Link>
         </div>
       </Container>
     </div>

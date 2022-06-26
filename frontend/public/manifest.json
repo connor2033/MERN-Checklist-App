@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Checkable",
+  "name": "Simple and shareable checklists",
   "icons": [
     {
       "src": "favicon.ico",
