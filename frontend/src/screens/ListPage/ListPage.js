@@ -35,6 +35,8 @@ function ListPage() {
       _id: data._id,
     };
 
+    document.title = data.title + " | Checkable";
+
     setChecklist(newChecklist);
   };
 
@@ -141,7 +143,7 @@ function ListPage() {
                         type="checkbox"
                         id={index}
                         className="checky"
-                        onClick={() => handleCheck(index)}
+                        // onClick={() => handleCheck(index)}
                         checked={checkedValue(index)}
                         readOnly
                       />
@@ -161,11 +163,27 @@ function ListPage() {
           {JSON.stringify(checklist, null, 4)}
         </pre> */}
         <div style={{ textAlign: "right" }}>
-          <Link to={"/template/" + id}>
-            <Button variant="secondary" className="bottomBtn">
-              Template
-            </Button>
-          </Link>
+          <OverlayTrigger
+            placement="top"
+            overlay={
+              <Tooltip
+                id={"top"}
+                style={{
+                  padding: "5px",
+                  color: "white",
+                  borderRadius: 3,
+                }}
+              >
+                Share this template!
+              </Tooltip>
+            }
+          >
+            <Link to={"/template/" + id}>
+              <Button variant="secondary" className="bottomBtn">
+                Template
+              </Button>
+            </Link>
+          </OverlayTrigger>
           <OverlayTrigger
             trigger="click"
             rootClose
@@ -182,15 +200,27 @@ function ListPage() {
               Share
             </Button>
           </OverlayTrigger>
-          <Link to={"/list/edit/" + id}>
-            <Button
-              variant="secondary"
-              className="bottomBtn"
-              // onClick={(window.location.href = "/list/edit/" + id)}
-            >
-              Edit
-            </Button>
-          </Link>
+          <OverlayTrigger
+            placement="top"
+            overlay={
+              <Tooltip
+                id={"top"}
+                style={{
+                  padding: "5px",
+                  color: "white",
+                  borderRadius: 3,
+                }}
+              >
+                Add/Remove Items
+              </Tooltip>
+            }
+          >
+            <Link to={"/list/edit/" + id}>
+              <Button variant="secondary" className="bottomBtn">
+                Edit
+              </Button>
+            </Link>
+          </OverlayTrigger>
         </div>
       </Container>
     </div>

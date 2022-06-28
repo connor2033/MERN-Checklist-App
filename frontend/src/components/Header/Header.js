@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import {
   Navbar,
   Nav,
@@ -10,12 +10,17 @@ import {
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [searchString, setSearchString] = useState("");
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      searchChecklist(event);
+    }
+  };
 
-  const searchChecklist = async () => {
-    if (searchString.length > 0) {
-      console.log("/list/" + searchString);
-      window.location.href = "/list/" + searchString;
+  const searchChecklist = (event) => {
+    event.preventDefault();
+    var searchId = document.getElementById("testId").value;
+    if (searchId.length > 0) {
+      window.location.href = "/list/" + searchId;
     }
   };
 
@@ -49,9 +54,10 @@ const Header = () => {
               placeholder="Checkable Code"
               className="me-2"
               aria-label="Search"
-              onChange={(e) => setSearchString(e.target.value)}
+              onKeyPress={(e) => handleKeyPress(e)}
+              id={"testId"}
             />
-            <Button variant="outline-light" onClick={searchChecklist}>
+            <Button variant="outline-light" onClick={(e) => searchChecklist(e)}>
               Search
             </Button>
           </Form>

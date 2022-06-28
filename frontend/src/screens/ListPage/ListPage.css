@@ -46,6 +46,7 @@
   color: var(--bs-body-color);
   position: relative;
   cursor: pointer;
+  max-width: 100%;
 }
 
 /* .itemListShell:hover {
@@ -59,6 +60,7 @@
   transition: color 0.25s;
   width: 80%;
   height: 100%;
+  word-wrap: break-word;
 }
 
 .checkDiv {
@@ -297,6 +299,12 @@ label:active {
     padding: 10px;
     margin-top: 20px;
     margin-right: 20px;
+  }
+}
+
+@media screen and (min-height: 830px) and (max-width: 430px) {
+  .listScrollBox {
+    max-height: 55vh;
   }
 }
 
