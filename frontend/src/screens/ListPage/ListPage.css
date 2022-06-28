@@ -46,7 +46,7 @@
   color: var(--bs-body-color);
   position: relative;
   cursor: pointer;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 /* .itemListShell:hover {
@@ -197,6 +197,7 @@ label:active {
   .listCard {
     padding: 2vh;
     margin-bottom: 1%;
+    max-width: 90%;
   }
 
   .listScrollBox {
@@ -224,6 +225,7 @@ label:active {
   .listCard {
     padding: 3vh;
     margin-bottom: 1%;
+    max-width: 90%;
   }
 
   .listScrollBox {
@@ -250,6 +252,7 @@ label:active {
 @media screen and (max-height: 700px) {
   .listCard {
     margin-top: 10vh;
+    max-width: 90%;
   }
 
   .listScrollBox {
@@ -261,6 +264,7 @@ label:active {
 @media screen and (max-height: 700px) and (max-width: 340px) {
   .listCard {
     margin-top: 10vh;
+    max-width: 90%;
   }
 
   .listScrollBox {
@@ -271,6 +275,7 @@ label:active {
 @media screen and (min-height: 700px) and (max-height: 900px) {
   .listCard {
     margin-top: 10vh;
+    max-width: 90%;
   }
 
   .listScrollBox {
@@ -283,6 +288,7 @@ label:active {
   .listCard {
     padding: 8vh;
     margin-top: 10vh;
+    max-width: 90%;
   }
 
   .listScrollBox {
