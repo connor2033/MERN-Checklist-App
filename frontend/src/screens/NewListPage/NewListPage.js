@@ -11,6 +11,19 @@ function NewListPage() {
   });
 
   const postChecklist = async () => {
+    var emptyList = true;
+
+    for (var i = 0; i < checklist.listItems.length; i++) {
+      if (checklist.listItems[i].itemName.length > 0) {
+        emptyList = false;
+      }
+    }
+
+    if (checklist.title === "" || emptyList) {
+      window.alert("List Name and Items can not be left empty.");
+      return;
+    }
+
     const config = {
       headers: {
         "Content-Type": "application/json",
