@@ -287,12 +287,12 @@ label:active {
 @media screen and (min-width: 2500px) {
   .listCard {
     padding: 8vh;
-    margin-top: 10vh;
-    max-width: 90%;
+    margin-top: 12vh;
+    max-width: 70%;
   }
 
   .listScrollBox {
-    max-height: 40vh;
+    max-height: 30vh;
     /* border: 1px solid blue; */
   }
 
